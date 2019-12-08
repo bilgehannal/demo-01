@@ -6,7 +6,7 @@ metadata:
   name: hello-world
 spec:
   ports:
-  - nodePort: 80
+  - nodePort: 31000
     port: 1080
     targetPort: 1080
   selector:
@@ -14,7 +14,7 @@ spec:
   sessionAffinity: None
   type: NodePort
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:

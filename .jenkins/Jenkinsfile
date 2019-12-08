@@ -1,10 +1,21 @@
+
+def baseImage = "base-python"
+
 pipeline {
+
    agent any
 
    stages {
       stage('Hello') {
          steps {
             echo 'Hello World Test'
+         }
+      }
+      stage('ls') {
+         steps {
+             script {
+                 sh "ls"
+             }
          }
       }
    }
