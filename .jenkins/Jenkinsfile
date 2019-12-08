@@ -14,7 +14,7 @@ pipeline {
       stage('ls') {
          steps {
              script {
-                 sh "printenv"
+                 print(GIT_BRANCH)
              }
          }
       }
