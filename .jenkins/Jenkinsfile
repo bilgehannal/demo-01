@@ -11,6 +11,7 @@ pipeline {
                 script {
                     currentBuild.displayName = "${BUILD_NUMBER}.${BRANCH_NAME}"
                     sh "sed -i 's/%VERSION%/${currentBuild.displayName}/g' .docker/docker-compose.yaml"
+                    sh "echo $USER"
                 }
             }
         }
