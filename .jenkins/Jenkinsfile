@@ -18,7 +18,7 @@ pipeline {
         stage('Style Control') {
             steps {
                 script {
-                    COMMAND = "pycodestyle *.py"
+                    COMMAND = "ls -la"
                     sh "docker run ${getDockerParams()} $baseImage sh -c '${COMMAND}'"
                 }
             }
