@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     COMMAND = "pycodestyle *.py"
-                    sh "sudo docker run ${getDockerParams()} $baseImage sh -c '${COMMAND}'"
+                    sh "docker run ${getDockerParams()} $baseImage sh -c '${COMMAND}'"
                 }
             }
         }
@@ -26,14 +26,14 @@ pipeline {
             steps {
                 script {
                     COMMAND = "python test.py"
-                    sh "sudo docker run ${getDockerParams()} $baseImage sh -c '${COMMAND}'"
+                    sh "docker run ${getDockerParams()} $baseImage sh -c '${COMMAND}'"
                 }
             }
         }
         stage('Docker Build') {
             steps {
                 script {
-                    sh "sudo docker build --file .docker/Dockerfile -t demo/hello-world:${currentBuild.displayName} ."
+                    sh "docker build --file .docker/Dockerfile -t demo/hello-world:${currentBuild.displayName} ."
                 }
             }
         }
