@@ -1,5 +1,5 @@
 
-def baseImage = "base-python"
+String baseImage = "base-python"
 
 pipeline {
 
@@ -14,9 +14,17 @@ pipeline {
       stage('ls') {
          steps {
              script {
-                 sh "ls"
+                 sh "printenv"
              }
          }
       }
    }
+}
+
+private String getDockerParams() {
+    dockerParameters = [
+            "-v", "$workspace:/usr/src/app"
+    ]
+
+    return "${dockerParameters.join(' ')}"
 }
