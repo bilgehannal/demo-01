@@ -1,6 +1,5 @@
-FROM python:3-alpine
+FROM base-python
 
-RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 COPY requirements.txt /usr/src/app/
